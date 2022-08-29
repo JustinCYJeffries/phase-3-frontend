@@ -1,6 +1,8 @@
-import React from "react"
+import React, {useState} from "react"
+import CryptoContainer from "./CryptoContainer"
 
-function PortfolioContainer({portfolioList, setSelectedPortfolio}){
+function PortfolioContainer({portfolioList, cryptoList, purchaseList}){
+    const [selectedPortfolio, setSelectedPortfolio]=useState()
     const portfolioButtons = portfolioList.map(portfolio=>{
         return (<button key={portfolio.id} id={portfolio.id} onClick={e=>clickHandler(e)}>{portfolio.name}</button>)
     })
@@ -18,6 +20,7 @@ function PortfolioContainer({portfolioList, setSelectedPortfolio}){
     return (<div className="text_center">
         <strong><h3>Choose a Portfolio</h3></strong>
         {portfolioButtons}
+        <CryptoContainer cryptoList={cryptoList} selectedPortfolio={selectedPortfolio} purchaseList={purchaseList}/>
     </div>)
 }
 

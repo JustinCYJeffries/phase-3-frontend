@@ -1,6 +1,9 @@
-import React from "react"
+import React, {useState} from "react"
+import PurchaseContainer from './PurchaseContainer'
 
-function CryptoContainer({cryptoList, setSelectedCrypto}){
+function CryptoContainer({cryptoList, selectedPortfolio, purchaseList}){
+    const [selectedCrypto, setSelectedCrypto]=useState()
+
     const cryptoButtons = cryptoList.map(crypto=>{
         return (<div className="box" key={crypto.id} id={crypto.id} onClick={e=>clickHandler(e)}><br/>{crypto.name}<br/>{crypto.price}<br/></div>)
     })
@@ -16,8 +19,22 @@ function CryptoContainer({cryptoList, setSelectedCrypto}){
     }
     
     return (<div>
+        <table>
+      <tbody>
+      <tr>
+        <td width="30%">
         <strong><h3 className="text_center">Choose a Crypto</h3></strong>
         {cryptoButtons}
+        </td>
+        <td>
+          <PurchaseContainer selectedCrypto={selectedCrypto} selectedPortfolio={selectedPortfolio} purchaseList={purchaseList}/>
+        </td>
+       
+      </tr>
+      </tbody>
+     </table>
+       
+       
     </div>)
 }
 
