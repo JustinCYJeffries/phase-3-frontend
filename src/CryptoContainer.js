@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import PurchaseContainer from './PurchaseContainer'
 
-function CryptoContainer({cryptoList, selectedPortfolio, purchaseList}){
+function CryptoContainer({cryptoList, selectedPortfolio, purchaseList, setNewPurch}){
     const [selectedCrypto, setSelectedCrypto]=useState()
 
     const cryptoButtons = cryptoList.map(crypto=>{
@@ -28,7 +28,7 @@ function CryptoContainer({cryptoList, selectedPortfolio, purchaseList}){
         </td>
         <td>
             
-          <PurchaseContainer selectedCrypto={selectedCrypto} selectedPortfolio={selectedPortfolio} purchaseList={purchaseList} cryptoList={cryptoList}/>
+          <PurchaseContainer selectedCrypto={selectedCrypto} selectedPortfolio={selectedPortfolio} purchaseList={purchaseList} cryptoList={cryptoList} setNewPurch={setNewPurch}/>
         </td>
        
       </tr>

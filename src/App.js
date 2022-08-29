@@ -9,13 +9,15 @@ function App() {
   const [portfolioList, setPortfolioList] = useState([])
   const [cryptoList, setCryptoList] = useState([])
   const [purchaseList, setPurchaseList] = useState([])
+  const [newPort, setNewPort] = useState()
+  const [newPurch, setNewPurch] = useState()
 
   
   useEffect(() => {
     fetch("http://localhost:9292/portfolios")
       .then((r) => r.json())
       .then(setPortfolioList);
-  }, []);
+  }, [newPort]);
 
   useEffect(() => {
     fetch("http://localhost:9292/cryptos")
@@ -27,14 +29,14 @@ function App() {
     fetch("http://localhost:9292/purchases")
       .then((r) => r.json())
       .then(setPurchaseList);
-  }, []);
+  }, [newPurch]);
 
 
 
   return (
     <div className="App">
      <div className="header">
-     <PortfolioContainer portfolioList={portfolioList}  cryptoList={cryptoList} purchaseList={purchaseList}/>
+     <PortfolioContainer portfolioList={portfolioList}  cryptoList={cryptoList} purchaseList={purchaseList} setNewPort={setNewPort} setNewPurch={setNewPurch}/>
      </div>
      
     </div>

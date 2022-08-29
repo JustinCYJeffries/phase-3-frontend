@@ -3,12 +3,12 @@ import React, { useState } from "react"
 function PortfolioInfoContainer({portfolioPurchases, cryptoList}){
     const ports = portfolioPurchases.map(pp => {
         return (
-                <tr>
+                <tr key={pp.id}>
                     <td >{cryptoList.find(x=> x.id == pp.crypto_id).name}</td>
                     <td width='20%'>{pp.amount_purchaced}</td>
                     <td width='20%'> {pp.purchase_price}</td>
                     <td width='20%'>{pp.profit}</td>
-                    <td width='20%'>{Boolean(pp.sold)}</td>
+                    <td width='20%'>{`${pp.sold}`}</td>
                     </tr>
 
         )

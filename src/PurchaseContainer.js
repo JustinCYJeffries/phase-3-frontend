@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import InfoContainer from "./InfoContainer"
 import PortfolioInfoContainer from "./PortfolioInfoContainer"
 
-function PurchaseContainer({selectedPortfolio, selectedCrypto, purchaseList, cryptoList}){
+function PurchaseContainer({selectedPortfolio, selectedCrypto, purchaseList, cryptoList, setNewPurch}){
     
    
    
@@ -12,12 +12,12 @@ function PurchaseContainer({selectedPortfolio, selectedCrypto, purchaseList, cry
         if(selectedCrypto != undefined)
         
         return(<div>
-            <InfoContainer cryptoPurchases={cryptoPurchases} cryptoList={cryptoList}/>
+            <InfoContainer setNewPurch={setNewPurch}cryptoPurchases={cryptoPurchases} cryptoList={cryptoList} selectedCrypto={selectedCrypto} selectedPortfolio={selectedPortfolio}/>
             
             </div>)
             
             
-            else return(<div>something is supposed to be here<PortfolioInfoContainer portfolioPurchases={portfolioPurchases} cryptoList={cryptoList}/></div>)
+            else return(<div><PortfolioInfoContainer portfolioPurchases={portfolioPurchases} cryptoList={cryptoList}/></div>)
 
     else return null
 
