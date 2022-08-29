@@ -9,6 +9,7 @@ function App() {
   const [cryptoList, setCryptoList] = useState([])
   const [purchaseList, setPurchaseList] = useState([])
   const [selectedPortfolio, setSelectedPortfolio]=useState()
+  const [selectedCrypto, setSelectedCrypto]=useState()
 
   useEffect(() => {
     fetch("http://localhost:9292/portfolios")
@@ -39,7 +40,7 @@ function App() {
       <tbody>
       <tr>
         <td width="30%">
-        <CryptoContainer cryptoList={cryptoList} />
+        <CryptoContainer cryptoList={cryptoList} setSelectedCrypto={setSelectedCrypto} />
         </td>
         <td>
           <InfoContainer cryptoList={cryptoList} portfolioList={portfolioList} purchaseList={purchaseList} selectedPortfolio={selectedPortfolio}/>
