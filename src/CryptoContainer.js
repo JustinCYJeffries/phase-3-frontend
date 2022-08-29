@@ -27,7 +27,8 @@ function CryptoContainer({cryptoList, selectedPortfolio, purchaseList}){
         {cryptoButtons}
         </td>
         <td>
-          <PurchaseContainer selectedCrypto={selectedCrypto} selectedPortfolio={selectedPortfolio} purchaseList={purchaseList}/>
+            
+          <PurchaseContainer selectedCrypto={selectedCrypto} selectedPortfolio={selectedPortfolio} purchaseList={purchaseList} cryptoList={cryptoList}/>
         </td>
        
       </tr>

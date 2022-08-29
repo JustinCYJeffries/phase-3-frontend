@@ -1,8 +1,7 @@
 import React, { useState } from "react"
 
-function InfoContainer({cryptoPurchases, cryptoList}){
-   
-    const ports = cryptoPurchases.map(pp => {
+function PortfolioInfoContainer({portfolioPurchases, cryptoList}){
+    const ports = portfolioPurchases.map(pp => {
         return (
                 <tr>
                     <td >{cryptoList.find(x=> x.id == pp.crypto_id).name}</td>
@@ -15,7 +14,6 @@ function InfoContainer({cryptoPurchases, cryptoList}){
         )
     })
     return (<div>
-        Total Profit: 
         <table>
             <tbody>
                 <tr>
@@ -33,5 +31,5 @@ function InfoContainer({cryptoPurchases, cryptoList}){
     
 
 
+export default PortfolioInfoContainer
 
-export default InfoContainer

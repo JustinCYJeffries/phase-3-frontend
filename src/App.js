@@ -9,6 +9,7 @@ function App() {
   const [portfolioList, setPortfolioList] = useState([])
   const [cryptoList, setCryptoList] = useState([])
   const [purchaseList, setPurchaseList] = useState([])
+
   
   useEffect(() => {
     fetch("http://localhost:9292/portfolios")
