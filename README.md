@@ -1,79 +1,27 @@
-<<<<<<< HEAD
-# phase-3-frontend
-=======
-# Getting Started with Create React App
+# Crypto Profit Calculator
+The Crypto Profit calculator allows you to monitor and track the profit of your portfolios. The calculator uses live crypto currency prices to calculate profits, and allows you to enter cryptocurrencies, the amount purchased and the price point of the time of purchase to calculate this profit. The calculator also tracks past trades by allowing you to mark cryptocurrencies as paid. When a cryptocurrency is marked paid, the profit at the moment of sale is recorded. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Installation
 
-## Available Scripts
+This is the frontend file that runs after the backend is up and running. This creates a visual representation of the data recorded on the backend. In order to run this file, clone and fork this repo, navigate to the folder and run this command in your temrminal.
 
-In the project directory, you can run:
+```bash
+$ npm start
+```
+The backend of this app can be found here: https://github.com/JustinCYJeffries/phase-3-sinatra-react-project-backend
 
-### `npm start`
+## Usage
+Once the front and back end are both running, the app is used by first either choosing a portfolio or creating a new one. Then you can choose a cryptocurrency from the left side. Once a cryptocurrency is chosen you can either view what has been previously recorded or new purchases can be recorded. Alternatively previous purchases can be deleted as well.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The seed file populates the dummy data. A limitation of the number of api calls allowed to be made limits the amount of cryptocurrencies that are able to be shown. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-### `npm test`
+Please make sure to update tests as appropriate.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Acknowledgements
+This app utilizes the faker ruby gem in order to create dummy data.
+https://github.com/faker-ruby/faker
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-<<<<<<< HEAD
->>>>>>> f10195e (Initialize project using Create React App)
-=======
-
-ok
->>>>>>> a8e5462 (builds react app)
+This app also uses the Cryptocompare ruby gem in order to receive live updates and live pricing, as well as populating the cryptocurrency list. https://github.com/alexanderdavidpan/cryptocompare
