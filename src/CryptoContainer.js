@@ -1,8 +1,9 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import PurchaseContainer from './PurchaseContainer'
 
-function CryptoContainer({cryptoList, selectedPortfolio, purchaseList, setNewPurch}){
-    const [selectedCrypto, setSelectedCrypto]=useState()
+function CryptoContainer({selectedCrypto, setSelectedCrypto, cryptoList, selectedPortfolio, purchaseList, setNewPurch, selectedPortfolioPurchases}){
+    
+    const [selectedCryptoPurchase, setSelectedCryptoPurchase]=useState([])
 
     const cryptoButtons = cryptoList.map(crypto=>{
         return (<div className="box" key={crypto.id} id={crypto.id} onClick={e=>clickHandler(e)}><br/>{crypto.name}<br/>{crypto.price}<br/></div>)
@@ -17,6 +18,11 @@ function CryptoContainer({cryptoList, selectedPortfolio, purchaseList, setNewPur
             else return null
         })
     }
+    useEffect(() => {
+        fetch(`http://localhost:9292/portfolios/${selectedPortfolio}/${selectedCrypto}`)
+          .then((r) => r.json())
+          .then(setSelectedCryptoPurchase);
+      }, [selectedCrypto]);
     
     return (<div>
         <table>
@@ -28,7 +34,7 @@ function CryptoContainer({cryptoList, selectedPortfolio, purchaseList, setNewPur
         </td>
         <td>
             
-          <PurchaseContainer selectedCrypto={selectedCrypto} selectedPortfolio={selectedPortfolio} purchaseList={purchaseList} cryptoList={cryptoList} setNewPurch={setNewPurch}/>
+          <PurchaseContainer selectedCryptoPurchase={selectedCryptoPurchase} selectedPortfolioPurchases={selectedPortfolioPurchases} selectedCrypto={selectedCrypto} selectedPortfolio={selectedPortfolio} purchaseList={purchaseList} cryptoList={cryptoList} setNewPurch={setNewPurch}/>
         </td>
        
       </tr>

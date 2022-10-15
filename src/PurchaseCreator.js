@@ -19,6 +19,7 @@ function PurchaseCreator({selectedPortfolio, selectedCrypto, setNewPurch}){
           "amount_purchaced": formData.amount_purchaced,
           "purchase_price": formData.purchase_price, 
           "crypto_id"   : selectedCrypto,
+          "sold"   : false,
           "portfolio_id": selectedPortfolio
           }
         fetch("http://localhost:9292/purchases", {
@@ -38,23 +39,25 @@ function PurchaseCreator({selectedPortfolio, selectedCrypto, setNewPurch}){
  <strong><h3>Create a Purchase</h3></strong>
         <form onSubmit={(e)=>handleSubmit(e)}>
         <input type="number"
-                  pattern="\d*"
-                    inputMode="numeric"
-                    
+                  
+                  pattern="[0-9]*"
+                  inputMode="numeric"  
                     label="amount_purchaced"
                     placeholder="Amount Purchased"
-                    name="name"
+                    name="amount_purchaced"
                     value={formData.amount_purchaced}
                     onChange={handleChange}
+                    required
                   /> 
                   <input type="number"
                   inputMode="numeric"
-                  pattern="\d*"
+                  pattern="[0-9]*"
                   label="purchase_price"
                   placeholder="Purchase Price"
-                  name="name"
+                  name = "purchase_price"
                   value={formData.purchase_price}
                   onChange={handleChange}
+                  required
                 />
 <button type="submit">Submit</button>
 </form>

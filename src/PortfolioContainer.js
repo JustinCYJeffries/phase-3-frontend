@@ -1,8 +1,10 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import CryptoContainer from "./CryptoContainer"
 
 function PortfolioContainer({portfolioList, cryptoList, purchaseList, setNewPort, setNewPurch}){
     const [selectedPortfolio, setSelectedPortfolio]=useState()
+    const [selectedPortfolioPurchases, setSelectedPortfolioPurchases]=useState({"purchases":[]})
+    const [selectedCrypto, setSelectedCrypto]=useState()
     const [formData, setFormData] = useState({
         name: ""
       })
@@ -21,7 +23,8 @@ function PortfolioContainer({portfolioList, cryptoList, purchaseList, setNewPort
         portfolioList.map(portfolio =>{
             if (portfolio.id == e.target.id)
             return(
-                setSelectedPortfolio(portfolio.id)
+                setSelectedPortfolio(portfolio.id),
+                setSelectedCrypto(null)
             )
             else return null
         })
@@ -47,7 +50,12 @@ function PortfolioContainer({portfolioList, cryptoList, purchaseList, setNewPort
           
       
     }
-        
+     
+    useEffect(() => {
+      fetch(`http://localhost:9292/portfolios/${selectedPortfolio}`)
+        .then((r) => r.json())
+        .then(setSelectedPortfolioPurchases);
+    }, [selectedPortfolio]);
     
   
 
@@ -63,10 +71,11 @@ function PortfolioContainer({portfolioList, cryptoList, purchaseList, setNewPort
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
+                    required
                   />
 <button type="submit">Submit</button>
 </form>
-        <CryptoContainer cryptoList={cryptoList} selectedPortfolio={selectedPortfolio} purchaseList={purchaseList} setNewPurch={setNewPurch} />
+        <CryptoContainer selectedCrypto={selectedCrypto} setSelectedCrypto={setSelectedCrypto} selectedPortfolioPurchases={selectedPortfolioPurchases} cryptoList={cryptoList} selectedPortfolio={selectedPortfolio} purchaseList={purchaseList} setNewPurch={setNewPurch} />
     </div>)
 }
 

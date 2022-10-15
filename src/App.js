@@ -17,7 +17,7 @@ function App() {
     fetch("http://localhost:9292/portfolios")
       .then((r) => r.json())
       .then(setPortfolioList);
-  }, [newPort]);
+  }, [newPort, newPurch]);
 
   useEffect(() => {
     fetch("http://localhost:9292/cryptos")
@@ -29,7 +29,7 @@ function App() {
     fetch("http://localhost:9292/purchases")
       .then((r) => r.json())
       .then(setPurchaseList);
-  }, [newPurch]);
+  }, []);
 
 
 
