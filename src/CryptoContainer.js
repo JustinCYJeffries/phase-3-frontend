@@ -4,6 +4,8 @@ import PurchaseContainer from './PurchaseContainer'
 function CryptoContainer({selectedCrypto, setSelectedCrypto, cryptoList, selectedPortfolio, purchaseList, setNewPurch, selectedPortfolioPurchases}){
     
     const [selectedCryptoPurchase, setSelectedCryptoPurchase]=useState([])
+    const [deletedCryptoPurchase, setDeletedCryptoPurchase]=useState([])
+    const [soldCryptoPurchase, setSoldCryptoPurchase]=useState([])
 
     const cryptoButtons = cryptoList.map(crypto=>{
         return (<div className="box" key={crypto.id} id={crypto.id} onClick={e=>clickHandler(e)}><br/>{crypto.name}<br/>{crypto.price}<br/></div>)
@@ -22,7 +24,7 @@ function CryptoContainer({selectedCrypto, setSelectedCrypto, cryptoList, selecte
         fetch(`http://localhost:9292/portfolios/${selectedPortfolio}/${selectedCrypto}`)
           .then((r) => r.json())
           .then(setSelectedCryptoPurchase);
-      }, [selectedCrypto]);
+      }, [selectedCrypto, deletedCryptoPurchase, soldCryptoPurchase]);
     
     return (<div>
         <table>
@@ -34,7 +36,7 @@ function CryptoContainer({selectedCrypto, setSelectedCrypto, cryptoList, selecte
         </td>
         <td>
             
-          <PurchaseContainer selectedCryptoPurchase={selectedCryptoPurchase} selectedPortfolioPurchases={selectedPortfolioPurchases} selectedCrypto={selectedCrypto} selectedPortfolio={selectedPortfolio} purchaseList={purchaseList} cryptoList={cryptoList} setNewPurch={setNewPurch}/>
+          <PurchaseContainer setSoldCryptoPurchase={setSoldCryptoPurchase} setDeletedCryptoPurchase={setDeletedCryptoPurchase} selectedCryptoPurchase={selectedCryptoPurchase} selectedPortfolioPurchases={selectedPortfolioPurchases} selectedCrypto={selectedCrypto} selectedPortfolio={selectedPortfolio} purchaseList={purchaseList} cryptoList={cryptoList} setNewPurch={setNewPurch}/>
         </td>
        
       </tr>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import InfoContainer from "./InfoContainer"
 import PortfolioInfoContainer from "./PortfolioInfoContainer"
 
-function PurchaseContainer({selectedPortfolio, selectedCrypto, purchaseList, cryptoList, setNewPurch, selectedPortfolioPurchases, selectedCryptoPurchase}){
+function PurchaseContainer({setSoldCryptoPurchase, selectedPortfolio, selectedCrypto, purchaseList, cryptoList, setNewPurch, selectedPortfolioPurchases, selectedCryptoPurchase, setDeletedCryptoPurchase}){
     
   
    
@@ -17,7 +17,7 @@ function PurchaseContainer({selectedPortfolio, selectedCrypto, purchaseList, cry
         return(<div>
             {console.log(cryptoPurchases)}
             Crypto Profit = {`${cryptoProfit}`}
-            <InfoContainer setNewPurch={setNewPurch}cryptoPurchases={cryptoPurchases} cryptoList={cryptoList} selectedCrypto={selectedCrypto} selectedPortfolio={selectedPortfolio}/>
+            <InfoContainer setSoldCryptoPurchase={setSoldCryptoPurchase} setDeletedCryptoPurchase={setDeletedCryptoPurchase} setNewPurch={setNewPurch}cryptoPurchases={cryptoPurchases} cryptoList={cryptoList} selectedCrypto={selectedCrypto} selectedPortfolio={selectedPortfolio}/>
             
             </div>)
             

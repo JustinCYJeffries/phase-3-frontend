@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-function SellButton({cryptid, seller}){
+function SellButton({cryptid, seller, setSoldCryptoPurchase}){
     function handleClick(e){
      fetch(`http://localhost:9292/purchases/${cryptid}`, {
         method: "PATCH",
@@ -15,7 +15,8 @@ function SellButton({cryptid, seller}){
           console.log(response.status); 
           return response.json();
         })
-        .then(data => console.log(data));
+        .then(data => console.log(data))
+        .then(setSoldCryptoPurchase);
      }
     
         
